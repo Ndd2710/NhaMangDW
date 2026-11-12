@@ -1,0 +1,9 @@
+{
+  "SQLServer": "localhost",
+  "KhoDuLieu": "NhaMangDW",
+  "NguonOLTP": "NhaMangOLTP",
+  "SSASServer": "localhost\\SSAS2022",
+  "DatabaseSSAS": "NhaMangDW_OLAP",
+  "AMOPath": "",
+  "ADOMDPath": ""
+}
