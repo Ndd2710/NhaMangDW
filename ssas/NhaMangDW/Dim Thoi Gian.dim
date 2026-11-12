@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dimension xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <ID>Dim Thoi Gian</ID>
+          <Name>Dim Thoi Gian</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Nha Mang DW</DataSourceViewID>
+          </Source>
+          <Type>Time</Type>
+          <ErrorConfiguration>
+            <KeyNotFound>ReportAndStop</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <Language>1033</Language>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <UnknownMemberName>Khong Ro</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>Thoi Gian ID</ID>
+              <Name>Thoi Gian ID</Name>
+              <Type>Date</Type>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_ThoiGian</TableID>
+                    <ColumnID>ThoiGianID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_ThoiGian</TableID>
+                  <ColumnID>ThoiGianID</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Thang</AttributeID>
+                  <RelationshipType>Rigid</RelationshipType>
+                  <Name>Thang</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Thang</ID>
+              <Name>Thang</Name>
+              <Type>Months</Type>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_ThoiGian</TableID>
+                    <ColumnID>MaThang</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>100</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_ThoiGian</TableID>
+                  <ColumnID>TenThang</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Quy</AttributeID>
+                  <RelationshipType>Rigid</RelationshipType>
+                  <Name>Quy</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Quy</ID>
+              <Name>Quy</Name>
+              <Type>Quarters</Type>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_ThoiGian</TableID>
+                    <ColumnID>MaQuy</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>100</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_ThoiGian</TableID>
+                  <ColumnID>TenQuy</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Nam</AttributeID>
+                  <RelationshipType>Rigid</RelationshipType>
+                  <Name>Nam</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Nam</ID>
+              <Name>Nam</Name>
+              <Type>Years</Type>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_ThoiGian</TableID>
+                    <ColumnID>Nam</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_ThoiGian</TableID>
+                  <ColumnID>Nam</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+          </Attributes>
+          <AttributeAllMemberName>Tat Ca</AttributeAllMemberName>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>Lich</ID>
+              <Name>Lich</Name>
+              <AllMemberName>Tat Ca</AllMemberName>
+              <Levels>
+                <Level>
+                  <ID>Nam</ID>
+                  <Name>Nam</Name>
+                  <SourceAttributeID>Nam</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Quy</ID>
+                  <Name>Quy</Name>
+                  <SourceAttributeID>Quy</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Thang</ID>
+                  <Name>Thang</Name>
+                  <SourceAttributeID>Thang</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Thoi Gian ID</ID>
+                  <Name>Thoi Gian ID</Name>
+                  <SourceAttributeID>Thoi Gian ID</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding"/>
+          </ProactiveCaching>
+        </Dimension>
+        
