@@ -1,0 +1,2 @@
+-- Lọc nhiều chiều: SIM tháng 10 theo vùng
+SELECT {[Measures].[So Luong Ban],[Measures].[Don Gia Ban Binh Quan]} ON 0, [Dim Kho Hang].[Vung].[Vung].Members ON 1 FROM [NhaMangDW] WHERE ([Dim Thoi Gian].[Thang].&[202610],[Dim San Pham].[Nhom San Pham].&[SIM]);
