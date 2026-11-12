@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Cube xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ID>NhaMangDW</ID>
+  <MeasureGroups>
+    <MeasureGroup><ID>Fact Ban Hang</ID><Partitions>
+                <Partition>
+                  <ID>Fact Ban Hang</ID>
+                  <Name>Fact Ban Hang</Name>
+                  <Source xsi:type="TableBinding">
+                    <DataSourceID>Nha Mang DW</DataSourceID>
+                    <DbSchemaName>dbo</DbSchemaName>
+                    <DbTableName>Fact_BanHang</DbTableName>
+                  </Source>
+                  <StorageMode>Molap</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding"/>
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              </MeasureGroup>
+    <MeasureGroup><ID>Fact Mua Hang</ID><Partitions>
+                <Partition>
+                  <ID>Fact Mua Hang</ID>
+                  <Name>Fact Mua Hang</Name>
+                  <Source xsi:type="TableBinding">
+                    <DataSourceID>Nha Mang DW</DataSourceID>
+                    <DbSchemaName>dbo</DbSchemaName>
+                    <DbTableName>Fact_MuaHang</DbTableName>
+                  </Source>
+                  <StorageMode>Molap</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding"/>
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              </MeasureGroup>
+    <MeasureGroup><ID>Fact Ton Kho</ID><Partitions>
+                <Partition>
+                  <ID>Fact Ton Kho</ID>
+                  <Name>Fact Ton Kho</Name>
+                  <Source xsi:type="TableBinding">
+                    <DataSourceID>Nha Mang DW</DataSourceID>
+                    <DbSchemaName>dbo</DbSchemaName>
+                    <DbTableName>Fact_TonKho</DbTableName>
+                  </Source>
+                  <StorageMode>Molap</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding"/>
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              </MeasureGroup>
+    <MeasureGroup><ID>Fact Cuoc Goi</ID><Partitions>
+                <Partition>
+                  <ID>Fact Cuoc Goi</ID>
+                  <Name>Fact Cuoc Goi</Name>
+                  <Source xsi:type="TableBinding">
+                    <DataSourceID>Nha Mang DW</DataSourceID>
+                    <DbSchemaName>dbo</DbSchemaName>
+                    <DbTableName>Fact_CuocGoi</DbTableName>
+                  </Source>
+                  <StorageMode>Molap</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding"/>
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              </MeasureGroup>
+  </MeasureGroups>
+</Cube>
