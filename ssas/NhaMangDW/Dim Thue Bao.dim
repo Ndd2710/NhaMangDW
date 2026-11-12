@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dimension xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <ID>Dim Thue Bao</ID>
+          <Name>Dim Thue Bao</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Nha Mang DW</DataSourceViewID>
+          </Source>
+          <ErrorConfiguration>
+            <KeyNotFound>ReportAndStop</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <Language>1033</Language>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <UnknownMemberName>Khong Ro</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>Thue Bao ID</ID>
+              <Name>Thue Bao ID</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_ThueBao</TableID>
+                    <ColumnID>ThueBaoID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_ThueBao</TableID>
+                  <ColumnID>MaThueBao</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Loai Khach Hang</AttributeID>
+                  <Name>Loai Khach Hang</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Ngay Dang Ky</AttributeID>
+                  <Name>Ngay Dang Ky</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Loai Khach Hang</ID>
+              <Name>Loai Khach Hang</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>120</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_ThueBao</TableID>
+                    <ColumnID>LoaiKhachHang</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_ThueBao</TableID>
+                  <ColumnID>LoaiKhachHang</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+            <Attribute>
+              <ID>Ngay Dang Ky</ID>
+              <Name>Ngay Dang Ky</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Date</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_ThueBao</TableID>
+                    <ColumnID>NgayDangKy</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_ThueBao</TableID>
+                  <ColumnID>TenNgayDangKy</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+          </Attributes>
+          <AttributeAllMemberName>Tat Ca</AttributeAllMemberName>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>Loai Khach Hang Thue Bao</ID>
+              <Name>Loai Khach Hang Thue Bao</Name>
+              <AllMemberName>Tat Ca</AllMemberName>
+              <Levels>
+                <Level>
+                  <ID>Loai Khach Hang</ID>
+                  <Name>Loai Khach Hang</Name>
+                  <SourceAttributeID>Loai Khach Hang</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Thue Bao ID</ID>
+                  <Name>Thue Bao ID</Name>
+                  <SourceAttributeID>Thue Bao ID</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding"/>
+          </ProactiveCaching>
+        </Dimension>
+        
