@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dimension xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <ID>Dim Khu Vuc</ID>
+          <Name>Dim Khu Vuc</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Nha Mang DW</DataSourceViewID>
+          </Source>
+          <ErrorConfiguration>
+            <KeyNotFound>ReportAndStop</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <Language>1033</Language>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <UnknownMemberName>Khong Ro</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>Khu Vuc ID</ID>
+              <Name>Khu Vuc ID</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_KhuVuc</TableID>
+                    <ColumnID>KhuVucID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_KhuVuc</TableID>
+                  <ColumnID>TenTinh</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Ten Tinh</AttributeID>
+                  <Name>Ten Tinh</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Ten Tinh</ID>
+              <Name>Ten Tinh</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>120</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_KhuVuc</TableID>
+                    <ColumnID>TenTinh</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_KhuVuc</TableID>
+                  <ColumnID>TenTinh</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Vung</AttributeID>
+                  <Name>Vung</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Vung</ID>
+              <Name>Vung</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>120</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_KhuVuc</TableID>
+                    <ColumnID>Vung</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_KhuVuc</TableID>
+                  <ColumnID>Vung</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+          </Attributes>
+          <AttributeAllMemberName>Tat Ca</AttributeAllMemberName>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>Dia Ly Cuoc</ID>
+              <Name>Dia Ly Cuoc</Name>
+              <AllMemberName>Tat Ca</AllMemberName>
+              <Levels>
+                <Level>
+                  <ID>Vung</ID>
+                  <Name>Vung</Name>
+                  <SourceAttributeID>Vung</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Ten Tinh</ID>
+                  <Name>Ten Tinh</Name>
+                  <SourceAttributeID>Ten Tinh</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Khu Vuc ID</ID>
+                  <Name>Khu Vuc ID</Name>
+                  <SourceAttributeID>Khu Vuc ID</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding"/>
+          </ProactiveCaching>
+        </Dimension>
+      
