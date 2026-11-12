@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.10.12201.205 stable
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "NhaMangDW", "NhaMangDW\NhaMangDW.dwproj", "{A3061E68-7263-4E91-9193-D9F52ED4D835}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3061E68-7263-4E91-9193-D9F52ED4D835}.Development|Default.ActiveCfg = Development
+		{A3061E68-7263-4E91-9193-D9F52ED4D835}.Development|Default.Build.0 = Development
+		{A3061E68-7263-4E91-9193-D9F52ED4D835}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
