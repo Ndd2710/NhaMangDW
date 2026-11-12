@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dimension xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <ID>Dim Dich Vu</ID>
+          <Name>Dim Dich Vu</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Nha Mang DW</DataSourceViewID>
+          </Source>
+          <ErrorConfiguration>
+            <KeyNotFound>ReportAndStop</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <Language>1033</Language>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <UnknownMemberName>Khong Ro</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>Dich Vu ID</ID>
+              <Name>Dich Vu ID</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_DichVu</TableID>
+                    <ColumnID>DichVuID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_DichVu</TableID>
+                  <ColumnID>TenGoiCuoc</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Loai Dich Vu</AttributeID>
+                  <Name>Loai Dich Vu</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Don Vi Tinh</AttributeID>
+                  <Name>Don Vi Tinh</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Loai Dich Vu</ID>
+              <Name>Loai Dich Vu</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>120</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_DichVu</TableID>
+                    <ColumnID>LoaiDichVu</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_DichVu</TableID>
+                  <ColumnID>LoaiDichVu</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+            <Attribute>
+              <ID>Don Vi Tinh</ID>
+              <Name>Don Vi Tinh</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>120</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_DichVu</TableID>
+                    <ColumnID>DonViTinh</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_DichVu</TableID>
+                  <ColumnID>DonViTinh</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+          </Attributes>
+          <AttributeAllMemberName>Tat Ca</AttributeAllMemberName>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>Loai Dich Vu Goi Cuoc</ID>
+              <Name>Loai Dich Vu Goi Cuoc</Name>
+              <AllMemberName>Tat Ca</AllMemberName>
+              <Levels>
+                <Level>
+                  <ID>Loai Dich Vu</ID>
+                  <Name>Loai Dich Vu</Name>
+                  <SourceAttributeID>Loai Dich Vu</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Dich Vu ID</ID>
+                  <Name>Dich Vu ID</Name>
+                  <SourceAttributeID>Dich Vu ID</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding"/>
+          </ProactiveCaching>
+        </Dimension>
+        
