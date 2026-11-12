@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nhà mạng DW · Phân tích kinh doanh</title>
+  <link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script><script src="/oltp.js" defer></script><script src="/analysis.js" defer></script>
+</head>
+<body>
+<div id="login-screen" class="login-wrap">
+  <section class="intro">
+    <div class="brand"><span class="brand-mark">N</span> NHÀ MẠNG <b>DW</b></div>
+    <span class="eyebrow">KHO DỮ LIỆU NHÀ MẠNG DI ĐỘNG</span>
+    <h1>Từ dữ liệu rời rạc<br>đến một góc nhìn<br><em>rõ ràng hơn.</em></h1>
+    <p>Theo dõi dòng hàng, tồn cuối kỳ và sử dụng dịch vụ trên cùng một không gian phân tích.</p>
+    <div class="intro-stats"><span><strong>07</strong>chiều phân tích</span><span><strong>04</strong>nghiệp vụ</span><span><strong>22</strong>số đo & phép tính</span></div>
+    <div class="intro-note">Dự án học phần Kho dữ liệu · Nguồn giả lập 09–10/2026</div>
+  </section>
+  <section class="login-card">
+    <span class="eyebrow">KHÔNG GIAN LÀM VIỆC CỤC BỘ</span><h2>Đăng nhập hệ thống</h2>
+    <p class="muted">Chọn tài khoản và nhập mật khẩu đã tạo khi mở ứng dụng.</p>
+    <form id="login-form">
+      <label for="username">Tài khoản</label><select id="username" name="username"><option value="nhanvien">nhanvien · Nhân viên</option><option value="quantri">quantri · Quản trị viên</option></select>
+      <label for="password">Mật khẩu</label><input id="password" name="password" type="password" autocomplete="current-password" required>
+      <p id="login-error" class="error" role="alert"></p><button class="primary" id="login-button" type="submit">Vào không gian làm việc <span>↗</span></button>
+    </form>
+    <div class="role-info"><strong>Nhân viên</strong><p>Khách hàng, thuê bao, giao dịch nguồn và báo cáo.</p><strong>Quản trị viên</strong><p>Thêm biểu giá, xem nhật ký và vận hành ETL/cube.</p></div>
+    <p class="small muted">Dữ liệu được đọc trực tiếp từ hệ thống đang chạy trên máy.</p>
+  </section>
+</div>
+<div id="workspace" class="workspace" hidden>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">N</span> NHÀ MẠNG <b>DW</b></div>
+    <div id="workspace-label" class="workspace-label">KHÔNG GIAN NHÂN VIÊN</div>
+    <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="navigation">☰ Chức năng</button>
+    <nav id="navigation" aria-label="Chức năng">
+      <a href="#/overview" data-view="overview" class="active"><span>⌂</span>Trang chủ</a>
+      <details class="nav-group" id="oltp-menu">
+        <summary>NGHIỆP VỤ NHÀ MẠNG</summary>
+        <a href="#/oltp-customers" data-view="oltp-customers">Khách hàng</a>
+        <a href="#/oltp-subscribers" data-view="oltp-subscribers">Thuê bao</a>
+        <a href="#/oltp-registrations" data-view="oltp-registrations">Đăng ký gói cước</a>
+        <a href="#/oltp-topups" data-view="oltp-topups">Nạp tiền</a>
+        <a href="#/oltp-usage" data-view="oltp-usage">Sử dụng dịch vụ</a>
+        <a href="#/oltp-invoices" data-view="oltp-invoices">Hóa đơn & thanh toán</a>
+        <a href="#/oltp-ledger" data-view="oltp-ledger">Sổ tài khoản</a>
+        <a href="#/oltp-plans" data-view="oltp-plans">Biểu giá mô phỏng</a>
+      </details>
+      <details class="nav-group" id="reports-menu" open>
+        <summary>BÁO CÁO KINH DOANH</summary>
+        <a href="#/sales" data-view="sales"><span>↗</span>Bán hàng</a>
+        <a href="#/purchases" data-view="purchases"><span>↙</span>Mua hàng</a>
+        <a href="#/inventory" data-view="inventory"><span>▤</span>Tồn kho</a>
+        <a href="#/telecom" data-view="telecom"><span>⌁</span>Cước dịch vụ</a>
+        <a href="#/analysis" data-view="analysis"><span>▥</span>Phân tích cước</a>
+        <a href="#/goods" data-view="goods"><span>⇄</span>Đối chiếu hàng hóa</a>
+      </details>
+      <a href="#/cube" data-view="cube"><span>◇</span>Đối soát SQL / cube</a>
+      <details class="nav-group" id="admin-nav" hidden>
+        <summary>QUẢN TRỊ DỮ LIỆU</summary>
+        <a href="#/operations" data-view="operations"><span>▷</span>Nạp & xử lý cube</a>
+        <a href="#/batches" data-view="batches"><span>◷</span>Lịch sử nạp</a>
+        <a href="#/errors" data-view="errors"><span>!</span>Dữ liệu lỗi</a>
+        <a href="#/watermarks" data-view="watermarks"><span>⌖</span>Mốc nạp dữ liệu</a>
+      </details>
+    </nav>
+    <div class="sidebar-bottom"><span class="live-dot"></span> Môi trường trình bày<p>Dữ liệu giả lập · Không phải<br>báo cáo doanh nghiệp thực tế</p></div>
+  </aside>
+  <div class="main-wrap">
+    <header class="topbar"><span>PHÂN TÍCH & ĐỐI CHIẾU <b>/</b> <span id="breadcrumb">Tổng quan</span></span><div class="user"><span id="role-badge" class="badge"></span><button id="logout" class="text-button">Đăng xuất ↗</button></div></header>
+    <main>
+      <div class="page-head"><div><span class="eyebrow">NHÀ MẠNG DW / BÁO CÁO QUẢN TRỊ</span><h1 id="page-title">Tổng quan kinh doanh</h1><p id="page-description">Hai góc nhìn độc lập: dòng hàng hóa và sử dụng dịch vụ.</p></div><div class="period"><label for="month">Kỳ phân tích</label><select id="month"><option value="202610">Tháng 10 / 2026</option><option value="202609">Tháng 09 / 2026</option></select></div></div>
+      <div class="data-strip"><span><i class="live-dot"></i><span id="data-status">Đang kết nối dữ liệu…</span></span><button id="refresh" class="text-button">↻ Làm mới dữ liệu</button></div>
+      <div id="notice" class="notice" role="status" hidden></div>
+      <div id="page-error" class="error-panel" role="alert" hidden></div>
+      <div id="loading" class="loading" hidden>Đang đọc dữ liệu từ máy chủ…</div>
+      <div id="report-feedback" class="report-feedback" role="status" aria-live="polite" hidden><span id="report-feedback-text"></span><button id="retry-report" class="text-button" type="button" hidden>Thử lại báo cáo</button></div>
+      <div id="content"></div>
+      <footer>NhaMangDW · SQL Server & SSAS <span>Số liệu tiền tệ bằng VND. Phút thoại và MB được phân tích riêng.</span></footer>
+    </main>
+  </div>
+</div>
+</body></html>
