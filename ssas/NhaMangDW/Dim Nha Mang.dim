@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dimension xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <ID>Dim Nha Mang</ID>
+          <Name>Dim Nha Mang</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Nha Mang DW</DataSourceViewID>
+          </Source>
+          <ErrorConfiguration>
+            <KeyNotFound>ReportAndStop</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <Language>1033</Language>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <UnknownMemberName>Khong Ro</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>Nha Mang ID</ID>
+              <Name>Nha Mang ID</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_NhaMang</TableID>
+                    <ColumnID>NhaMangID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_NhaMang</TableID>
+                  <ColumnID>TenNhaMang</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Loai Hinh</AttributeID>
+                  <Name>Loai Hinh</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Loai Hinh</ID>
+              <Name>Loai Hinh</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>120</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_NhaMang</TableID>
+                    <ColumnID>LoaiHinh</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_NhaMang</TableID>
+                  <ColumnID>LoaiHinh</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+          </Attributes>
+          <AttributeAllMemberName>Tat Ca</AttributeAllMemberName>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>Loai Hinh Nha Mang</ID>
+              <Name>Loai Hinh Nha Mang</Name>
+              <AllMemberName>Tat Ca</AllMemberName>
+              <Levels>
+                <Level>
+                  <ID>Loai Hinh</ID>
+                  <Name>Loai Hinh</Name>
+                  <SourceAttributeID>Loai Hinh</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Nha Mang ID</ID>
+                  <Name>Nha Mang ID</Name>
+                  <SourceAttributeID>Nha Mang ID</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding"/>
+          </ProactiveCaching>
+        </Dimension>
+        
