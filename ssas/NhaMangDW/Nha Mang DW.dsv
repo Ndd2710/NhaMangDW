@@ -1,0 +1,425 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DataSourceView xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+          <ID>Nha Mang DW</ID>
+          <Name>Nha Mang DW</Name>
+          <DataSourceID>Nha Mang DW</DataSourceID>
+          <Schema>
+            <xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" id="NhaMangDW">
+              <xs:element name="NhaMangDW" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+                <xs:complexType>
+                  <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="dbo_Dim_ThoiGian" msprop:DbTableName="Dim_ThoiGian" msprop:FriendlyName="Dim Thoi Gian" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ThoiGianID" msprop:FriendlyName="ThoiGianID" type="xs:int"/>
+                          <xs:element name="Ngay" msprop:FriendlyName="Ngay" type="xs:dateTime" minOccurs="0"/>
+                          <xs:element name="Nam" msprop:FriendlyName="Nam" type="xs:int" minOccurs="0"/>
+                          <xs:element name="MaQuy" msprop:FriendlyName="MaQuy" type="xs:int" minOccurs="0"/>
+                          <xs:element name="TenQuy" msprop:FriendlyName="TenQuy" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="MaThang" msprop:FriendlyName="MaThang" type="xs:int" minOccurs="0"/>
+                          <xs:element name="TenThang" msprop:FriendlyName="TenThang" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Dim_SanPham" msprop:DbTableName="Dim_SanPham" msprop:FriendlyName="Dim San Pham" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SanPhamID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="SanPhamID" type="xs:int"/>
+                          <xs:element name="MaSanPhamNghiepVu" msprop:FriendlyName="MaSanPhamNghiepVu">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TenSanPham" msprop:FriendlyName="TenSanPham">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="NhomSanPham" msprop:FriendlyName="NhomSanPham">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="40"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="NgayHieuLuc" msprop:FriendlyName="NgayHieuLuc" type="xs:dateTime"/>
+                          <xs:element name="NgayHetHieuLuc" msprop:FriendlyName="NgayHetHieuLuc" type="xs:dateTime"/>
+                          <xs:element name="HienHanh" msprop:FriendlyName="HienHanh" type="xs:boolean"/>
+                          <xs:element name="DotNapID" msprop:FriendlyName="DotNapID" type="xs:long" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Dim_KhoHang" msprop:DbTableName="Dim_KhoHang" msprop:FriendlyName="Dim Kho Hang" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="KhoHangID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="KhoHangID" type="xs:int"/>
+                          <xs:element name="MaKhoHangNghiepVu" msprop:FriendlyName="MaKhoHangNghiepVu">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TenKhoHang" msprop:FriendlyName="TenKhoHang" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TenTinh" msprop:FriendlyName="TenTinh" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Vung" msprop:FriendlyName="Vung" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Fact_BanHang" msprop:DbTableName="Fact_BanHang" msprop:FriendlyName="Fact Ban Hang" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="BanHangID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="BanHangID" type="xs:long"/>
+                          <xs:element name="HeThongNguon" msprop:FriendlyName="HeThongNguon">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DongNguonID" msprop:FriendlyName="DongNguonID" type="xs:long"/>
+                          <xs:element name="SoChungTu" msprop:FriendlyName="SoChungTu">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="SoThuTuDong" msprop:FriendlyName="SoThuTuDong" type="xs:int"/>
+                          <xs:element name="ThoiGianID" msprop:FriendlyName="ThoiGianID" type="xs:int"/>
+                          <xs:element name="SanPhamID" msprop:FriendlyName="SanPhamID" type="xs:int"/>
+                          <xs:element name="KhoHangID" msprop:FriendlyName="KhoHangID" type="xs:int"/>
+                          <xs:element name="SoLuongBan" msprop:FriendlyName="SoLuongBan" type="xs:int"/>
+                          <xs:element name="DonGiaBan" msprop:FriendlyName="DonGiaBan" type="xs:decimal"/>
+                          <xs:element name="DotNapID" msprop:FriendlyName="DotNapID" type="xs:long"/>
+                          <xs:element name="DoanhThu" msdata:ReadOnly="true" msprop:FriendlyName="DoanhThu" type="xs:decimal" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Fact_MuaHang" msprop:DbTableName="Fact_MuaHang" msprop:FriendlyName="Fact Mua Hang" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="MuaHangID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="MuaHangID" type="xs:long"/>
+                          <xs:element name="HeThongNguon" msprop:FriendlyName="HeThongNguon">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DongNguonID" msprop:FriendlyName="DongNguonID" type="xs:long"/>
+                          <xs:element name="SoChungTu" msprop:FriendlyName="SoChungTu">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="SoThuTuDong" msprop:FriendlyName="SoThuTuDong" type="xs:int"/>
+                          <xs:element name="ThoiGianID" msprop:FriendlyName="ThoiGianID" type="xs:int"/>
+                          <xs:element name="SanPhamID" msprop:FriendlyName="SanPhamID" type="xs:int"/>
+                          <xs:element name="KhoHangID" msprop:FriendlyName="KhoHangID" type="xs:int"/>
+                          <xs:element name="SoLuongMua" msprop:FriendlyName="SoLuongMua" type="xs:int"/>
+                          <xs:element name="DonGiaMua" msprop:FriendlyName="DonGiaMua" type="xs:decimal"/>
+                          <xs:element name="DotNapID" msprop:FriendlyName="DotNapID" type="xs:long"/>
+                          <xs:element name="ThanhTienMua" msdata:ReadOnly="true" msprop:FriendlyName="ThanhTienMua" type="xs:decimal" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Fact_TonKho" msprop:DbTableName="Fact_TonKho" msprop:FriendlyName="Fact Ton Kho" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="TonKhoID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="TonKhoID" type="xs:long"/>
+                          <xs:element name="HeThongNguon" msprop:FriendlyName="HeThongNguon">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DongNguonID" msprop:FriendlyName="DongNguonID" type="xs:long"/>
+                          <xs:element name="SoChungTu" msprop:FriendlyName="SoChungTu">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="SoThuTuDong" msprop:FriendlyName="SoThuTuDong" type="xs:int"/>
+                          <xs:element name="ThoiGianID" msprop:FriendlyName="ThoiGianID" type="xs:int"/>
+                          <xs:element name="SanPhamID" msprop:FriendlyName="SanPhamID" type="xs:int"/>
+                          <xs:element name="KhoHangID" msprop:FriendlyName="KhoHangID" type="xs:int"/>
+                          <xs:element name="SoLuongTon" msprop:FriendlyName="SoLuongTon" type="xs:int"/>
+                          <xs:element name="DonGiaTonKyThuat" msprop:FriendlyName="DonGiaTonKyThuat" type="xs:decimal"/>
+                          <xs:element name="DotNapID" msprop:FriendlyName="DotNapID" type="xs:long"/>
+                          <xs:element name="ThanhTienTonKyThuat" msdata:ReadOnly="true" msprop:FriendlyName="ThanhTienTonKyThuat" type="xs:decimal" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Dim_DichVu" msprop:DbTableName="Dim_DichVu" msprop:FriendlyName="Dim Dich Vu" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="DichVuID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="DichVuID" type="xs:int"/>
+                          <xs:element name="MaDichVu" msprop:FriendlyName="MaDichVu">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TenGoiCuoc" msprop:FriendlyName="TenGoiCuoc">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="LoaiDichVu" msprop:FriendlyName="LoaiDichVu">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DonViTinh" msprop:FriendlyName="DonViTinh">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DonGiaPhut" msprop:FriendlyName="DonGiaPhut" type="xs:decimal"/>
+                          <xs:element name="DonGiaMB" msprop:FriendlyName="DonGiaMB" type="xs:decimal"/>
+                          <xs:element name="PhiMoiPhut" msprop:FriendlyName="PhiMoiPhut" type="xs:decimal"/>
+                          <xs:element name="PhiMoiMB" msprop:FriendlyName="PhiMoiMB" type="xs:decimal"/>
+                          <xs:element name="PhiMoiBanGhi" msprop:FriendlyName="PhiMoiBanGhi" type="xs:decimal"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Dim_NhaMang" msprop:DbTableName="Dim_NhaMang" msprop:FriendlyName="Dim Nha Mang" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="NhaMangID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="NhaMangID" type="xs:int"/>
+                          <xs:element name="MaNhaMang" msprop:FriendlyName="MaNhaMang">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TenNhaMang" msprop:FriendlyName="TenNhaMang">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="LoaiHinh" msprop:FriendlyName="LoaiHinh">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="50"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Dim_ThueBao" msprop:DbTableName="Dim_ThueBao" msprop:FriendlyName="Dim Thue Bao" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ThueBaoID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="ThueBaoID" type="xs:int"/>
+                          <xs:element name="MaThueBao" msprop:FriendlyName="MaThueBao">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="LoaiKhachHang" msprop:FriendlyName="LoaiKhachHang">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="50"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="NgayDangKy" msprop:FriendlyName="NgayDangKy" type="xs:dateTime"/>
+                          <xs:element name="TenNgayDangKy" msdata:ReadOnly="true" msprop:FriendlyName="TenNgayDangKy" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Dim_KhuVuc" msprop:DbTableName="Dim_KhuVuc" msprop:FriendlyName="Dim Khu Vuc" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="KhuVucID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="KhuVucID" type="xs:int"/>
+                          <xs:element name="MaKhuVuc" msprop:FriendlyName="MaKhuVuc">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TenTinh" msprop:FriendlyName="TenTinh">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Vung" msprop:FriendlyName="Vung">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Fact_CuocGoi" msprop:DbTableName="Fact_CuocGoi" msprop:FriendlyName="Fact Cuoc Goi" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="CuocGoiID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="CuocGoiID" type="xs:long"/>
+                          <xs:element name="HeThongNguon" msprop:FriendlyName="HeThongNguon">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DongNguonID" msprop:FriendlyName="DongNguonID" type="xs:long"/>
+                          <xs:element name="MaSuDung" msprop:FriendlyName="MaSuDung">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="60"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="ThoiGianID" msprop:FriendlyName="ThoiGianID" type="xs:int"/>
+                          <xs:element name="DichVuID" msprop:FriendlyName="DichVuID" type="xs:int"/>
+                          <xs:element name="NhaMangID" msprop:FriendlyName="NhaMangID" type="xs:int"/>
+                          <xs:element name="ThueBaoID" msprop:FriendlyName="ThueBaoID" type="xs:int"/>
+                          <xs:element name="KhuVucID" msprop:FriendlyName="KhuVucID" type="xs:int"/>
+                          <xs:element name="SoPhutGoi" msprop:FriendlyName="SoPhutGoi" type="xs:decimal"/>
+                          <xs:element name="DungLuongDataMB" msprop:FriendlyName="DungLuongDataMB" type="xs:decimal"/>
+                          <xs:element name="SoCuocGoi" msprop:FriendlyName="SoCuocGoi" type="xs:int"/>
+                          <xs:element name="DonGiaPhut" msprop:FriendlyName="DonGiaPhut" type="xs:decimal"/>
+                          <xs:element name="DonGiaMB" msprop:FriendlyName="DonGiaMB" type="xs:decimal"/>
+                          <xs:element name="DoanhThuThoai" msdata:ReadOnly="true" msprop:FriendlyName="DoanhThuThoai" type="xs:decimal" minOccurs="0"/>
+                          <xs:element name="DoanhThuData" msdata:ReadOnly="true" msprop:FriendlyName="DoanhThuData" type="xs:decimal" minOccurs="0"/>
+                          <xs:element name="DoanhThu" msdata:ReadOnly="true" msprop:FriendlyName="DoanhThu" type="xs:decimal" minOccurs="0"/>
+                          <xs:element name="PhiVienThong" msprop:FriendlyName="PhiVienThong" type="xs:decimal"/>
+                          <xs:element name="PhiXuLy" msprop:FriendlyName="PhiXuLy" type="xs:decimal"/>
+                          <xs:element name="DotNapID" msprop:FriendlyName="DotNapID" type="xs:long"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+                <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Dim_ThoiGian"/>
+                  <xs:field xpath="ThoiGianID"/>
+                </xs:unique>
+                <xs:unique name="dbo_Dim_SanPham_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Dim_SanPham"/>
+                  <xs:field xpath="SanPhamID"/>
+                </xs:unique>
+                <xs:unique name="dbo_Dim_KhoHang_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Dim_KhoHang"/>
+                  <xs:field xpath="KhoHangID"/>
+                </xs:unique>
+                <xs:unique name="dbo_Fact_BanHang_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Fact_BanHang"/>
+                  <xs:field xpath="BanHangID"/>
+                </xs:unique>
+                <xs:unique name="dbo_Fact_MuaHang_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Fact_MuaHang"/>
+                  <xs:field xpath="MuaHangID"/>
+                </xs:unique>
+                <xs:unique name="dbo_Fact_TonKho_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Fact_TonKho"/>
+                  <xs:field xpath="TonKhoID"/>
+                </xs:unique>
+                <xs:unique name="dbo_Dim_DichVu_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Dim_DichVu"/>
+                  <xs:field xpath="DichVuID"/>
+                </xs:unique>
+                <xs:unique name="dbo_Dim_NhaMang_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Dim_NhaMang"/>
+                  <xs:field xpath="NhaMangID"/>
+                </xs:unique>
+                <xs:unique name="dbo_Dim_ThueBao_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Dim_ThueBao"/>
+                  <xs:field xpath="ThueBaoID"/>
+                </xs:unique>
+                <xs:unique name="dbo_Dim_KhuVuc_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Dim_KhuVuc"/>
+                  <xs:field xpath="KhuVucID"/>
+                </xs:unique>
+                <xs:unique name="dbo_Fact_CuocGoi_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Fact_CuocGoi"/>
+                  <xs:field xpath="CuocGoiID"/>
+                </xs:unique>
+              </xs:element>
+              <xs:annotation>
+                <xs:appinfo>
+                  <msdata:Relationship name="FK_Fact_BanHang_Dim_ThoiGian" msdata:parent="dbo_Dim_ThoiGian" msdata:child="dbo_Fact_BanHang" msdata:parentkey="ThoiGianID" msdata:childkey="ThoiGianID"/>
+                  <msdata:Relationship name="FK_Fact_BanHang_Dim_SanPham" msdata:parent="dbo_Dim_SanPham" msdata:child="dbo_Fact_BanHang" msdata:parentkey="SanPhamID" msdata:childkey="SanPhamID"/>
+                  <msdata:Relationship name="FK_Fact_BanHang_Dim_KhoHang" msdata:parent="dbo_Dim_KhoHang" msdata:child="dbo_Fact_BanHang" msdata:parentkey="KhoHangID" msdata:childkey="KhoHangID"/>
+                  <msdata:Relationship name="FK_Fact_MuaHang_Dim_ThoiGian" msdata:parent="dbo_Dim_ThoiGian" msdata:child="dbo_Fact_MuaHang" msdata:parentkey="ThoiGianID" msdata:childkey="ThoiGianID"/>
+                  <msdata:Relationship name="FK_Fact_MuaHang_Dim_SanPham" msdata:parent="dbo_Dim_SanPham" msdata:child="dbo_Fact_MuaHang" msdata:parentkey="SanPhamID" msdata:childkey="SanPhamID"/>
+                  <msdata:Relationship name="FK_Fact_MuaHang_Dim_KhoHang" msdata:parent="dbo_Dim_KhoHang" msdata:child="dbo_Fact_MuaHang" msdata:parentkey="KhoHangID" msdata:childkey="KhoHangID"/>
+                  <msdata:Relationship name="FK_Fact_TonKho_Dim_ThoiGian" msdata:parent="dbo_Dim_ThoiGian" msdata:child="dbo_Fact_TonKho" msdata:parentkey="ThoiGianID" msdata:childkey="ThoiGianID"/>
+                  <msdata:Relationship name="FK_Fact_TonKho_Dim_SanPham" msdata:parent="dbo_Dim_SanPham" msdata:child="dbo_Fact_TonKho" msdata:parentkey="SanPhamID" msdata:childkey="SanPhamID"/>
+                  <msdata:Relationship name="FK_Fact_TonKho_Dim_KhoHang" msdata:parent="dbo_Dim_KhoHang" msdata:child="dbo_Fact_TonKho" msdata:parentkey="KhoHangID" msdata:childkey="KhoHangID"/>
+                  <msdata:Relationship name="FK_Fact_CuocGoi_Dim_ThoiGian" msdata:parent="dbo_Dim_ThoiGian" msdata:child="dbo_Fact_CuocGoi" msdata:parentkey="ThoiGianID" msdata:childkey="ThoiGianID"/>
+                  <msdata:Relationship name="FK_Fact_CuocGoi_Dim_DichVu" msdata:parent="dbo_Dim_DichVu" msdata:child="dbo_Fact_CuocGoi" msdata:parentkey="DichVuID" msdata:childkey="DichVuID"/>
+                  <msdata:Relationship name="FK_Fact_CuocGoi_Dim_NhaMang" msdata:parent="dbo_Dim_NhaMang" msdata:child="dbo_Fact_CuocGoi" msdata:parentkey="NhaMangID" msdata:childkey="NhaMangID"/>
+                  <msdata:Relationship name="FK_Fact_CuocGoi_Dim_ThueBao" msdata:parent="dbo_Dim_ThueBao" msdata:child="dbo_Fact_CuocGoi" msdata:parentkey="ThueBaoID" msdata:childkey="ThueBaoID"/>
+                  <msdata:Relationship name="FK_Fact_CuocGoi_Dim_KhuVuc" msdata:parent="dbo_Dim_KhuVuc" msdata:child="dbo_Fact_CuocGoi" msdata:parentkey="KhuVucID" msdata:childkey="KhuVucID"/>
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:schema>
+            <NhaMangDW xmlns=""/>
+          </Schema>
+        </DataSourceView>
+      
