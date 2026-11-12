@@ -1,0 +1,33 @@
+# Tep ca nhan, cache va build
+.vs/
+**/bin/
+**/obj/
+__pycache__/
+*.py[cod]
+*.user
+*.suo
+.env
+.env.*
+!.env.example
+
+# Du lieu, ban sao luu, tai lieu nop va tep nen
+*.bak
+*.abf
+*.mdf
+*.ldf
+*.ndf
+*.zip
+*.7z
+*.rar
+*.docx
+*.pdf
+
+# Ket qua sinh khi chay he thong
+evidence/
+*.log
+*.tmp
+~$*
+reports/*.csv
+
+# Cau hinh rieng tung may
+cau-hinh.local.json
