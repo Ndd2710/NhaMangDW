@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dimension xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <ID>Dim San Pham</ID>
+          <Name>Dim San Pham</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Nha Mang DW</DataSourceViewID>
+          </Source>
+          <ErrorConfiguration>
+            <KeyNotFound>ReportAndStop</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <Language>1033</Language>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <UnknownMemberName>Khong Ro</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>San Pham ID</ID>
+              <Name>San Pham ID</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_SanPham</TableID>
+                    <ColumnID>SanPhamID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>100</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_SanPham</TableID>
+                  <ColumnID>TenSanPham</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Nhom San Pham</AttributeID>
+                  <Name>Nhom San Pham</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Nhom San Pham</ID>
+              <Name>Nhom San Pham</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>100</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_SanPham</TableID>
+                    <ColumnID>NhomSanPham</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>100</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_SanPham</TableID>
+                  <ColumnID>NhomSanPham</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+          </Attributes>
+          <AttributeAllMemberName>Tat Ca</AttributeAllMemberName>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>Danh Muc San Pham</ID>
+              <Name>Danh Muc San Pham</Name>
+              <AllMemberName>Tat Ca</AllMemberName>
+              <Levels>
+                <Level>
+                  <ID>Nhom San Pham</ID>
+                  <Name>Nhom San Pham</Name>
+                  <SourceAttributeID>Nhom San Pham</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>San Pham ID</ID>
+                  <Name>San Pham ID</Name>
+                  <SourceAttributeID>San Pham ID</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding"/>
+          </ProactiveCaching>
+        </Dimension>
+        
