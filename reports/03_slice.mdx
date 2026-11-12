@@ -1,0 +1,2 @@
+-- Cắt lát tháng 10 theo nhóm sản phẩm
+SELECT {[Measures].[So Luong Ban],[Measures].[So Luong Ton]} ON 0, [Dim San Pham].[Nhom San Pham].[Nhom San Pham].Members ON 1 FROM [NhaMangDW] WHERE ([Dim Thoi Gian].[Thang].&[202610]);
