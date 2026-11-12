@@ -1,0 +1,5 @@
+-- Ba miền của bộ 63 tỉnh lịch sử; tồn vẫn lấy LastChild theo thời gian.
+SELECT {[Measures].[So Luong Ban],[Measures].[Doanh Thu Ban Hang],[Measures].[So Luong Ton]} ON 0,
+NON EMPTY [Dim Kho Hang].[Vung].[Vung].Members ON 1
+FROM [NhaMangDW]
+WHERE ([Dim Thoi Gian].[Thang].&[202610])
