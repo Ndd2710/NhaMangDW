@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DataSource xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RelationalDataSource">
+          <ID>Nha Mang DW</ID>
+          <Name>Nha Mang DW</Name>
+          <ConnectionString>Provider=MSOLEDBSQL.1;Data Source=localhost;Initial Catalog=NhaMangDW;Integrated Security=SSPI;TrustServerCertificate=True;</ConnectionString>
+          <ImpersonationInfo>
+            <ImpersonationMode>ImpersonateServiceAccount</ImpersonationMode>
+          </ImpersonationInfo>
+          <Timeout>PT0S</Timeout>
+        </DataSource>
+      
