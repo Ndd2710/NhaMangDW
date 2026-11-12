@@ -1,0 +1,4 @@
+SELECT {[Measures].[So Phut Goi],[Measures].[Dung Luong Data MB],[Measures].[Doanh Thu Cuoc]} ON 0,
+NON EMPTY [Dim Khu Vuc].[Vung].[Vung].Members ON 1
+FROM [NhaMangDW]
+WHERE ([Dim Thoi Gian].[Thang].&[202610])
