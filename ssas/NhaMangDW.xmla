@@ -1,0 +1,2469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Create xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ObjectDefinition>
+    <Database xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500">
+      <ID>NhaMangDW_OLAP</ID>
+      <Name>NhaMangDW_OLAP</Name>
+      <ddl200:CompatibilityLevel>1100</ddl200:CompatibilityLevel>
+      <Language>1033</Language>
+      <Collation>Latin1_General_CI_AS</Collation>
+      <DataSourceImpersonationInfo>
+        <ImpersonationMode>Default</ImpersonationMode>
+      </DataSourceImpersonationInfo>
+      <Dimensions>
+        <Dimension>
+          <ID>Dim Thoi Gian</ID>
+          <Name>Dim Thoi Gian</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Nha Mang DW</DataSourceViewID>
+          </Source>
+          <Type>Time</Type>
+          <ErrorConfiguration>
+            <KeyNotFound>ReportAndStop</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <Language>1033</Language>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <UnknownMemberName>Khong Ro</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>Thoi Gian ID</ID>
+              <Name>Thoi Gian ID</Name>
+              <Type>Date</Type>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_ThoiGian</TableID>
+                    <ColumnID>ThoiGianID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_ThoiGian</TableID>
+                  <ColumnID>ThoiGianID</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Thang</AttributeID>
+                  <RelationshipType>Rigid</RelationshipType>
+                  <Name>Thang</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Thang</ID>
+              <Name>Thang</Name>
+              <Type>Months</Type>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_ThoiGian</TableID>
+                    <ColumnID>MaThang</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>100</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_ThoiGian</TableID>
+                  <ColumnID>TenThang</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Quy</AttributeID>
+                  <RelationshipType>Rigid</RelationshipType>
+                  <Name>Quy</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Quy</ID>
+              <Name>Quy</Name>
+              <Type>Quarters</Type>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_ThoiGian</TableID>
+                    <ColumnID>MaQuy</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>100</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_ThoiGian</TableID>
+                  <ColumnID>TenQuy</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Nam</AttributeID>
+                  <RelationshipType>Rigid</RelationshipType>
+                  <Name>Nam</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Nam</ID>
+              <Name>Nam</Name>
+              <Type>Years</Type>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_ThoiGian</TableID>
+                    <ColumnID>Nam</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_ThoiGian</TableID>
+                  <ColumnID>Nam</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+          </Attributes>
+          <AttributeAllMemberName>Tat Ca</AttributeAllMemberName>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>Lich</ID>
+              <Name>Lich</Name>
+              <AllMemberName>Tat Ca</AllMemberName>
+              <Levels>
+                <Level>
+                  <ID>Nam</ID>
+                  <Name>Nam</Name>
+                  <SourceAttributeID>Nam</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Quy</ID>
+                  <Name>Quy</Name>
+                  <SourceAttributeID>Quy</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Thang</ID>
+                  <Name>Thang</Name>
+                  <SourceAttributeID>Thang</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Thoi Gian ID</ID>
+                  <Name>Thoi Gian ID</Name>
+                  <SourceAttributeID>Thoi Gian ID</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Dimension>
+        <Dimension>
+          <ID>Dim San Pham</ID>
+          <Name>Dim San Pham</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Nha Mang DW</DataSourceViewID>
+          </Source>
+          <ErrorConfiguration>
+            <KeyNotFound>ReportAndStop</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <Language>1033</Language>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <UnknownMemberName>Khong Ro</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>San Pham ID</ID>
+              <Name>San Pham ID</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_SanPham</TableID>
+                    <ColumnID>SanPhamID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>100</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_SanPham</TableID>
+                  <ColumnID>TenSanPham</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Nhom San Pham</AttributeID>
+                  <Name>Nhom San Pham</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Nhom San Pham</ID>
+              <Name>Nhom San Pham</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>100</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_SanPham</TableID>
+                    <ColumnID>NhomSanPham</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>100</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_SanPham</TableID>
+                  <ColumnID>NhomSanPham</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+          </Attributes>
+          <AttributeAllMemberName>Tat Ca</AttributeAllMemberName>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>Danh Muc San Pham</ID>
+              <Name>Danh Muc San Pham</Name>
+              <AllMemberName>Tat Ca</AllMemberName>
+              <Levels>
+                <Level>
+                  <ID>Nhom San Pham</ID>
+                  <Name>Nhom San Pham</Name>
+                  <SourceAttributeID>Nhom San Pham</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>San Pham ID</ID>
+                  <Name>San Pham ID</Name>
+                  <SourceAttributeID>San Pham ID</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Dimension>
+        <Dimension>
+          <ID>Dim Kho Hang</ID>
+          <Name>Dim Kho Hang</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Nha Mang DW</DataSourceViewID>
+          </Source>
+          <ErrorConfiguration>
+            <KeyNotFound>ReportAndStop</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <Language>1033</Language>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <UnknownMemberName>Khong Ro</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>Kho Hang ID</ID>
+              <Name>Kho Hang ID</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_KhoHang</TableID>
+                    <ColumnID>KhoHangID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>100</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_KhoHang</TableID>
+                  <ColumnID>TenKhoHang</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Ten Tinh</AttributeID>
+                  <Name>Ten Tinh</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Ten Tinh</ID>
+              <Name>Ten Tinh</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>100</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_KhoHang</TableID>
+                    <ColumnID>TenTinh</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>100</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_KhoHang</TableID>
+                  <ColumnID>TenTinh</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Vung</AttributeID>
+                  <Name>Vung</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Vung</ID>
+              <Name>Vung</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>100</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_KhoHang</TableID>
+                    <ColumnID>Vung</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>100</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_KhoHang</TableID>
+                  <ColumnID>Vung</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+          </Attributes>
+          <AttributeAllMemberName>Tat Ca</AttributeAllMemberName>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>Dia Ly</ID>
+              <Name>Dia Ly</Name>
+              <AllMemberName>Tat Ca</AllMemberName>
+              <Levels>
+                <Level>
+                  <ID>Vung</ID>
+                  <Name>Vung</Name>
+                  <SourceAttributeID>Vung</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Ten Tinh</ID>
+                  <Name>Ten Tinh</Name>
+                  <SourceAttributeID>Ten Tinh</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Kho Hang ID</ID>
+                  <Name>Kho Hang ID</Name>
+                  <SourceAttributeID>Kho Hang ID</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Dimension>
+        <Dimension>
+          <ID>Dim Dich Vu</ID>
+          <Name>Dim Dich Vu</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Nha Mang DW</DataSourceViewID>
+          </Source>
+          <ErrorConfiguration>
+            <KeyNotFound>ReportAndStop</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <Language>1033</Language>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <UnknownMemberName>Khong Ro</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>Dich Vu ID</ID>
+              <Name>Dich Vu ID</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_DichVu</TableID>
+                    <ColumnID>DichVuID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_DichVu</TableID>
+                  <ColumnID>TenGoiCuoc</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Loai Dich Vu</AttributeID>
+                  <Name>Loai Dich Vu</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Don Vi Tinh</AttributeID>
+                  <Name>Don Vi Tinh</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Loai Dich Vu</ID>
+              <Name>Loai Dich Vu</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>120</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_DichVu</TableID>
+                    <ColumnID>LoaiDichVu</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_DichVu</TableID>
+                  <ColumnID>LoaiDichVu</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+            <Attribute>
+              <ID>Don Vi Tinh</ID>
+              <Name>Don Vi Tinh</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>120</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_DichVu</TableID>
+                    <ColumnID>DonViTinh</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_DichVu</TableID>
+                  <ColumnID>DonViTinh</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+          </Attributes>
+          <AttributeAllMemberName>Tat Ca</AttributeAllMemberName>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>Loai Dich Vu Goi Cuoc</ID>
+              <Name>Loai Dich Vu Goi Cuoc</Name>
+              <AllMemberName>Tat Ca</AllMemberName>
+              <Levels>
+                <Level>
+                  <ID>Loai Dich Vu</ID>
+                  <Name>Loai Dich Vu</Name>
+                  <SourceAttributeID>Loai Dich Vu</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Dich Vu ID</ID>
+                  <Name>Dich Vu ID</Name>
+                  <SourceAttributeID>Dich Vu ID</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Dimension>
+        <Dimension>
+          <ID>Dim Nha Mang</ID>
+          <Name>Dim Nha Mang</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Nha Mang DW</DataSourceViewID>
+          </Source>
+          <ErrorConfiguration>
+            <KeyNotFound>ReportAndStop</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <Language>1033</Language>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <UnknownMemberName>Khong Ro</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>Nha Mang ID</ID>
+              <Name>Nha Mang ID</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_NhaMang</TableID>
+                    <ColumnID>NhaMangID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_NhaMang</TableID>
+                  <ColumnID>TenNhaMang</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Loai Hinh</AttributeID>
+                  <Name>Loai Hinh</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Loai Hinh</ID>
+              <Name>Loai Hinh</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>120</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_NhaMang</TableID>
+                    <ColumnID>LoaiHinh</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_NhaMang</TableID>
+                  <ColumnID>LoaiHinh</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+          </Attributes>
+          <AttributeAllMemberName>Tat Ca</AttributeAllMemberName>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>Loai Hinh Nha Mang</ID>
+              <Name>Loai Hinh Nha Mang</Name>
+              <AllMemberName>Tat Ca</AllMemberName>
+              <Levels>
+                <Level>
+                  <ID>Loai Hinh</ID>
+                  <Name>Loai Hinh</Name>
+                  <SourceAttributeID>Loai Hinh</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Nha Mang ID</ID>
+                  <Name>Nha Mang ID</Name>
+                  <SourceAttributeID>Nha Mang ID</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Dimension>
+        <Dimension>
+          <ID>Dim Thue Bao</ID>
+          <Name>Dim Thue Bao</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Nha Mang DW</DataSourceViewID>
+          </Source>
+          <ErrorConfiguration>
+            <KeyNotFound>ReportAndStop</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <Language>1033</Language>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <UnknownMemberName>Khong Ro</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>Thue Bao ID</ID>
+              <Name>Thue Bao ID</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_ThueBao</TableID>
+                    <ColumnID>ThueBaoID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_ThueBao</TableID>
+                  <ColumnID>MaThueBao</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Loai Khach Hang</AttributeID>
+                  <Name>Loai Khach Hang</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Ngay Dang Ky</AttributeID>
+                  <Name>Ngay Dang Ky</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Loai Khach Hang</ID>
+              <Name>Loai Khach Hang</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>120</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_ThueBao</TableID>
+                    <ColumnID>LoaiKhachHang</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_ThueBao</TableID>
+                  <ColumnID>LoaiKhachHang</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+            <Attribute>
+              <ID>Ngay Dang Ky</ID>
+              <Name>Ngay Dang Ky</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Date</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_ThueBao</TableID>
+                    <ColumnID>NgayDangKy</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_ThueBao</TableID>
+                  <ColumnID>TenNgayDangKy</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+          </Attributes>
+          <AttributeAllMemberName>Tat Ca</AttributeAllMemberName>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>Loai Khach Hang Thue Bao</ID>
+              <Name>Loai Khach Hang Thue Bao</Name>
+              <AllMemberName>Tat Ca</AllMemberName>
+              <Levels>
+                <Level>
+                  <ID>Loai Khach Hang</ID>
+                  <Name>Loai Khach Hang</Name>
+                  <SourceAttributeID>Loai Khach Hang</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Thue Bao ID</ID>
+                  <Name>Thue Bao ID</Name>
+                  <SourceAttributeID>Thue Bao ID</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Dimension>
+        <Dimension>
+          <ID>Dim Khu Vuc</ID>
+          <Name>Dim Khu Vuc</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Nha Mang DW</DataSourceViewID>
+          </Source>
+          <ErrorConfiguration>
+            <KeyNotFound>ReportAndStop</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <Language>1033</Language>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <UnknownMemberName>Khong Ro</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>Khu Vuc ID</ID>
+              <Name>Khu Vuc ID</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_KhuVuc</TableID>
+                    <ColumnID>KhuVucID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_KhuVuc</TableID>
+                  <ColumnID>TenTinh</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Ten Tinh</AttributeID>
+                  <Name>Ten Tinh</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Ten Tinh</ID>
+              <Name>Ten Tinh</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>120</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_KhuVuc</TableID>
+                    <ColumnID>TenTinh</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_KhuVuc</TableID>
+                  <ColumnID>TenTinh</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Vung</AttributeID>
+                  <Name>Vung</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+            </Attribute>
+            <Attribute>
+              <ID>Vung</ID>
+              <Name>Vung</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>120</DataSize>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_Dim_KhuVuc</TableID>
+                    <ColumnID>Vung</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>120</DataSize>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_Dim_KhuVuc</TableID>
+                  <ColumnID>Vung</ColumnID>
+                </Source>
+              </NameColumn>
+            </Attribute>
+          </Attributes>
+          <AttributeAllMemberName>Tat Ca</AttributeAllMemberName>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>Dia Ly Cuoc</ID>
+              <Name>Dia Ly Cuoc</Name>
+              <AllMemberName>Tat Ca</AllMemberName>
+              <Levels>
+                <Level>
+                  <ID>Vung</ID>
+                  <Name>Vung</Name>
+                  <SourceAttributeID>Vung</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Ten Tinh</ID>
+                  <Name>Ten Tinh</Name>
+                  <SourceAttributeID>Ten Tinh</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Khu Vuc ID</ID>
+                  <Name>Khu Vuc ID</Name>
+                  <SourceAttributeID>Khu Vuc ID</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Dimension>
+      </Dimensions>
+      <Cubes>
+        <Cube>
+          <ID>NhaMangDW</ID>
+          <Name>NhaMangDW</Name>
+          <Language>1033</Language>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <Dimensions>
+            <Dimension>
+              <ID>Dim Thoi Gian</ID>
+              <Name>Dim Thoi Gian</Name>
+              <DimensionID>Dim Thoi Gian</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Thoi Gian ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Thang</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Quy</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Nam</AttributeID>
+                </Attribute>
+              </Attributes>
+              <Hierarchies>
+                <Hierarchy>
+                  <HierarchyID>Lich</HierarchyID>
+                </Hierarchy>
+              </Hierarchies>
+            </Dimension>
+            <Dimension>
+              <ID>Dim San Pham</ID>
+              <Name>Dim San Pham</Name>
+              <DimensionID>Dim San Pham</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>San Pham ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Nhom San Pham</AttributeID>
+                </Attribute>
+              </Attributes>
+              <Hierarchies>
+                <Hierarchy>
+                  <HierarchyID>Danh Muc San Pham</HierarchyID>
+                </Hierarchy>
+              </Hierarchies>
+            </Dimension>
+            <Dimension>
+              <ID>Dim Kho Hang</ID>
+              <Name>Dim Kho Hang</Name>
+              <DimensionID>Dim Kho Hang</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Kho Hang ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Ten Tinh</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Vung</AttributeID>
+                </Attribute>
+              </Attributes>
+              <Hierarchies>
+                <Hierarchy>
+                  <HierarchyID>Dia Ly</HierarchyID>
+                </Hierarchy>
+              </Hierarchies>
+            </Dimension>
+            <Dimension>
+              <ID>Dim Dich Vu</ID>
+              <Name>Dim Dich Vu</Name>
+              <DimensionID>Dim Dich Vu</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Dich Vu ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Loai Dich Vu</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Don Vi Tinh</AttributeID>
+                </Attribute>
+              </Attributes>
+              <Hierarchies>
+                <Hierarchy>
+                  <HierarchyID>Loai Dich Vu Goi Cuoc</HierarchyID>
+                </Hierarchy>
+              </Hierarchies>
+            </Dimension>
+            <Dimension>
+              <ID>Dim Nha Mang</ID>
+              <Name>Dim Nha Mang</Name>
+              <DimensionID>Dim Nha Mang</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Nha Mang ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Loai Hinh</AttributeID>
+                </Attribute>
+              </Attributes>
+              <Hierarchies>
+                <Hierarchy>
+                  <HierarchyID>Loai Hinh Nha Mang</HierarchyID>
+                </Hierarchy>
+              </Hierarchies>
+            </Dimension>
+            <Dimension>
+              <ID>Dim Thue Bao</ID>
+              <Name>Dim Thue Bao</Name>
+              <DimensionID>Dim Thue Bao</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Thue Bao ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Loai Khach Hang</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Ngay Dang Ky</AttributeID>
+                </Attribute>
+              </Attributes>
+              <Hierarchies>
+                <Hierarchy>
+                  <HierarchyID>Loai Khach Hang Thue Bao</HierarchyID>
+                </Hierarchy>
+              </Hierarchies>
+            </Dimension>
+            <Dimension>
+              <ID>Dim Khu Vuc</ID>
+              <Name>Dim Khu Vuc</Name>
+              <DimensionID>Dim Khu Vuc</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Khu Vuc ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Ten Tinh</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Vung</AttributeID>
+                </Attribute>
+              </Attributes>
+              <Hierarchies>
+                <Hierarchy>
+                  <HierarchyID>Dia Ly Cuoc</HierarchyID>
+                </Hierarchy>
+              </Hierarchies>
+            </Dimension>
+          </Dimensions>
+          <MeasureGroups>
+            <MeasureGroup>
+              <ID>Fact Ban Hang</ID>
+              <Name>Fact Ban Hang</Name>
+              <Measures>
+                <Measure>
+                  <ID>So Luong Ban</ID>
+                  <Name>So Luong Ban</Name>
+                  <DataType>Integer</DataType>
+                  <Source>
+                    <DataType>Integer</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_BanHang</TableID>
+                      <ColumnID>SoLuongBan</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>Doanh Thu Ban Hang</ID>
+                  <Name>Doanh Thu Ban Hang</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_BanHang</TableID>
+                      <ColumnID>DoanhThu</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>So Dong Ban</ID>
+                  <Name>So Dong Ban</Name>
+                  <AggregateFunction>Count</AggregateFunction>
+                  <DataType>BigInt</DataType>
+                  <Source>
+                    <DataType>BigInt</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_BanHang</TableID>
+                      <ColumnID>BanHangID</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0</FormatString>
+                </Measure>
+              </Measures>
+              <StorageMode>Molap</StorageMode>
+              <IgnoreUnrelatedDimensions>false</IgnoreUnrelatedDimensions>
+              <ProcessingMode>Regular</ProcessingMode>
+              <Dimensions>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Dim Thoi Gian</CubeDimensionID>
+                  <Cardinality>One</Cardinality>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Thoi Gian ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Fact_BanHang</TableID>
+                            <ColumnID>ThoiGianID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Thang</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_ThoiGian</TableID>
+                            <ColumnID>MaThang</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Quy</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_ThoiGian</TableID>
+                            <ColumnID>MaQuy</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Nam</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_ThoiGian</TableID>
+                            <ColumnID>Nam</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Dim San Pham</CubeDimensionID>
+                  <Cardinality>One</Cardinality>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>San Pham ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Fact_BanHang</TableID>
+                            <ColumnID>SanPhamID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Nhom San Pham</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>100</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_SanPham</TableID>
+                            <ColumnID>NhomSanPham</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Dim Kho Hang</CubeDimensionID>
+                  <Cardinality>One</Cardinality>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Kho Hang ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Fact_BanHang</TableID>
+                            <ColumnID>KhoHangID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Ten Tinh</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>100</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_KhoHang</TableID>
+                            <ColumnID>TenTinh</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Vung</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>100</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_KhoHang</TableID>
+                            <ColumnID>Vung</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+              <Partitions>
+                <Partition>
+                  <ID>Fact Ban Hang</ID>
+                  <Name>Fact Ban Hang</Name>
+                  <Source xsi:type="TableBinding">
+                    <DataSourceID>Nha Mang DW</DataSourceID>
+                    <DbSchemaName>dbo</DbSchemaName>
+                    <DbTableName>Fact_BanHang</DbTableName>
+                  </Source>
+                  <StorageMode>Molap</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding" />
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              <ProactiveCaching>
+                <SilenceInterval>-PT1S</SilenceInterval>
+                <Latency>-PT1S</Latency>
+                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                <Source xsi:type="ProactiveCachingInheritedBinding" />
+              </ProactiveCaching>
+            </MeasureGroup>
+            <MeasureGroup>
+              <ID>Fact Mua Hang</ID>
+              <Name>Fact Mua Hang</Name>
+              <Measures>
+                <Measure>
+                  <ID>So Luong Mua</ID>
+                  <Name>So Luong Mua</Name>
+                  <DataType>Integer</DataType>
+                  <Source>
+                    <DataType>Integer</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_MuaHang</TableID>
+                      <ColumnID>SoLuongMua</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>Thanh Tien Mua</ID>
+                  <Name>Thanh Tien Mua</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_MuaHang</TableID>
+                      <ColumnID>ThanhTienMua</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>So Dong Mua</ID>
+                  <Name>So Dong Mua</Name>
+                  <AggregateFunction>Count</AggregateFunction>
+                  <DataType>BigInt</DataType>
+                  <Source>
+                    <DataType>BigInt</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_MuaHang</TableID>
+                      <ColumnID>MuaHangID</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0</FormatString>
+                </Measure>
+              </Measures>
+              <StorageMode>Molap</StorageMode>
+              <IgnoreUnrelatedDimensions>false</IgnoreUnrelatedDimensions>
+              <ProcessingMode>Regular</ProcessingMode>
+              <Dimensions>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Dim Thoi Gian</CubeDimensionID>
+                  <Cardinality>One</Cardinality>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Thoi Gian ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Fact_MuaHang</TableID>
+                            <ColumnID>ThoiGianID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Thang</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_ThoiGian</TableID>
+                            <ColumnID>MaThang</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Quy</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_ThoiGian</TableID>
+                            <ColumnID>MaQuy</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Nam</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_ThoiGian</TableID>
+                            <ColumnID>Nam</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Dim San Pham</CubeDimensionID>
+                  <Cardinality>One</Cardinality>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>San Pham ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Fact_MuaHang</TableID>
+                            <ColumnID>SanPhamID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Nhom San Pham</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>100</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_SanPham</TableID>
+                            <ColumnID>NhomSanPham</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Dim Kho Hang</CubeDimensionID>
+                  <Cardinality>One</Cardinality>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Kho Hang ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Fact_MuaHang</TableID>
+                            <ColumnID>KhoHangID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Ten Tinh</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>100</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_KhoHang</TableID>
+                            <ColumnID>TenTinh</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Vung</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>100</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_KhoHang</TableID>
+                            <ColumnID>Vung</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+              <Partitions>
+                <Partition>
+                  <ID>Fact Mua Hang</ID>
+                  <Name>Fact Mua Hang</Name>
+                  <Source xsi:type="TableBinding">
+                    <DataSourceID>Nha Mang DW</DataSourceID>
+                    <DbSchemaName>dbo</DbSchemaName>
+                    <DbTableName>Fact_MuaHang</DbTableName>
+                  </Source>
+                  <StorageMode>Molap</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding" />
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              <ProactiveCaching>
+                <SilenceInterval>-PT1S</SilenceInterval>
+                <Latency>-PT1S</Latency>
+                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                <Source xsi:type="ProactiveCachingInheritedBinding" />
+              </ProactiveCaching>
+            </MeasureGroup>
+            <MeasureGroup>
+              <ID>Fact Ton Kho</ID>
+              <Name>Fact Ton Kho</Name>
+              <Measures>
+                <Measure>
+                  <ID>So Luong Ton</ID>
+                  <Name>So Luong Ton</Name>
+                  <AggregateFunction>LastChild</AggregateFunction>
+                  <DataType>Integer</DataType>
+                  <Source>
+                    <DataType>Integer</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_TonKho</TableID>
+                      <ColumnID>SoLuongTon</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>So Ban Ghi Ton</ID>
+                  <Name>So Ban Ghi Ton</Name>
+                  <AggregateFunction>Count</AggregateFunction>
+                  <DataType>BigInt</DataType>
+                  <Source>
+                    <DataType>BigInt</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_TonKho</TableID>
+                      <ColumnID>TonKhoID</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0</FormatString>
+                </Measure>
+              </Measures>
+              <StorageMode>Molap</StorageMode>
+              <IgnoreUnrelatedDimensions>false</IgnoreUnrelatedDimensions>
+              <ProcessingMode>Regular</ProcessingMode>
+              <Dimensions>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Dim Thoi Gian</CubeDimensionID>
+                  <Cardinality>One</Cardinality>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Thoi Gian ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Fact_TonKho</TableID>
+                            <ColumnID>ThoiGianID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Thang</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_ThoiGian</TableID>
+                            <ColumnID>MaThang</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Quy</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_ThoiGian</TableID>
+                            <ColumnID>MaQuy</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Nam</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_ThoiGian</TableID>
+                            <ColumnID>Nam</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Dim San Pham</CubeDimensionID>
+                  <Cardinality>One</Cardinality>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>San Pham ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Fact_TonKho</TableID>
+                            <ColumnID>SanPhamID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Nhom San Pham</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>100</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_SanPham</TableID>
+                            <ColumnID>NhomSanPham</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Dim Kho Hang</CubeDimensionID>
+                  <Cardinality>One</Cardinality>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Kho Hang ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Fact_TonKho</TableID>
+                            <ColumnID>KhoHangID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Ten Tinh</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>100</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_KhoHang</TableID>
+                            <ColumnID>TenTinh</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Vung</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>100</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_KhoHang</TableID>
+                            <ColumnID>Vung</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+              <Partitions>
+                <Partition>
+                  <ID>Fact Ton Kho</ID>
+                  <Name>Fact Ton Kho</Name>
+                  <Source xsi:type="TableBinding">
+                    <DataSourceID>Nha Mang DW</DataSourceID>
+                    <DbSchemaName>dbo</DbSchemaName>
+                    <DbTableName>Fact_TonKho</DbTableName>
+                  </Source>
+                  <StorageMode>Molap</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding" />
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              <ProactiveCaching>
+                <SilenceInterval>-PT1S</SilenceInterval>
+                <Latency>-PT1S</Latency>
+                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                <Source xsi:type="ProactiveCachingInheritedBinding" />
+              </ProactiveCaching>
+            </MeasureGroup>
+            <MeasureGroup>
+              <ID>Fact Cuoc Goi</ID>
+              <Name>Fact Cuoc Goi</Name>
+              <Measures>
+                <Measure>
+                  <ID>So Phut Goi</ID>
+                  <Name>So Phut Goi</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_CuocGoi</TableID>
+                      <ColumnID>SoPhutGoi</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>Dung Luong Data MB</ID>
+                  <Name>Dung Luong Data MB</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_CuocGoi</TableID>
+                      <ColumnID>DungLuongDataMB</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>So Cuoc Goi</ID>
+                  <Name>So Cuoc Goi</Name>
+                  <DataType>Integer</DataType>
+                  <Source>
+                    <DataType>Integer</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_CuocGoi</TableID>
+                      <ColumnID>SoCuocGoi</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>Doanh Thu Cuoc</ID>
+                  <Name>Doanh Thu Cuoc</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_CuocGoi</TableID>
+                      <ColumnID>DoanhThu</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>Doanh Thu Thoai</ID>
+                  <Name>Doanh Thu Thoai</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_CuocGoi</TableID>
+                      <ColumnID>DoanhThuThoai</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>Doanh Thu Data</ID>
+                  <Name>Doanh Thu Data</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_CuocGoi</TableID>
+                      <ColumnID>DoanhThuData</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>Phi Vien Thong</ID>
+                  <Name>Phi Vien Thong</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_CuocGoi</TableID>
+                      <ColumnID>PhiVienThong</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>Phi Xu Ly</ID>
+                  <Name>Phi Xu Ly</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_CuocGoi</TableID>
+                      <ColumnID>PhiXuLy</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>So Ban Ghi Cuoc</ID>
+                  <Name>So Ban Ghi Cuoc</Name>
+                  <AggregateFunction>Count</AggregateFunction>
+                  <DataType>BigInt</DataType>
+                  <Source>
+                    <DataType>BigInt</DataType>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>dbo_Fact_CuocGoi</TableID>
+                      <ColumnID>CuocGoiID</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0</FormatString>
+                </Measure>
+              </Measures>
+              <StorageMode>Molap</StorageMode>
+              <IgnoreUnrelatedDimensions>false</IgnoreUnrelatedDimensions>
+              <ProcessingMode>Regular</ProcessingMode>
+              <Dimensions>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Dim Thoi Gian</CubeDimensionID>
+                  <Cardinality>One</Cardinality>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Thoi Gian ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Fact_CuocGoi</TableID>
+                            <ColumnID>ThoiGianID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Thang</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_ThoiGian</TableID>
+                            <ColumnID>MaThang</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Quy</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_ThoiGian</TableID>
+                            <ColumnID>MaQuy</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Nam</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_ThoiGian</TableID>
+                            <ColumnID>Nam</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Dim Dich Vu</CubeDimensionID>
+                  <Cardinality>One</Cardinality>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dich Vu ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Fact_CuocGoi</TableID>
+                            <ColumnID>DichVuID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Loai Dich Vu</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>120</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_DichVu</TableID>
+                            <ColumnID>LoaiDichVu</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Don Vi Tinh</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>120</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_DichVu</TableID>
+                            <ColumnID>DonViTinh</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Dim Nha Mang</CubeDimensionID>
+                  <Cardinality>One</Cardinality>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Nha Mang ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Fact_CuocGoi</TableID>
+                            <ColumnID>NhaMangID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Loai Hinh</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>120</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_NhaMang</TableID>
+                            <ColumnID>LoaiHinh</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Dim Thue Bao</CubeDimensionID>
+                  <Cardinality>One</Cardinality>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Thue Bao ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Fact_CuocGoi</TableID>
+                            <ColumnID>ThueBaoID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Loai Khach Hang</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>120</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_ThueBao</TableID>
+                            <ColumnID>LoaiKhachHang</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Ngay Dang Ky</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Date</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_ThueBao</TableID>
+                            <ColumnID>NgayDangKy</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Dim Khu Vuc</CubeDimensionID>
+                  <Cardinality>One</Cardinality>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Khu Vuc ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Fact_CuocGoi</TableID>
+                            <ColumnID>KhuVucID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Ten Tinh</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>120</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_KhuVuc</TableID>
+                            <ColumnID>TenTinh</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Vung</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>120</DataSize>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>dbo_Dim_KhuVuc</TableID>
+                            <ColumnID>Vung</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+              <Partitions>
+                <Partition>
+                  <ID>Fact Cuoc Goi</ID>
+                  <Name>Fact Cuoc Goi</Name>
+                  <Source xsi:type="TableBinding">
+                    <DataSourceID>Nha Mang DW</DataSourceID>
+                    <DbSchemaName>dbo</DbSchemaName>
+                    <DbTableName>Fact_CuocGoi</DbTableName>
+                  </Source>
+                  <StorageMode>Molap</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding" />
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              <ProactiveCaching>
+                <SilenceInterval>-PT1S</SilenceInterval>
+                <Latency>-PT1S</Latency>
+                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                <Source xsi:type="ProactiveCachingInheritedBinding" />
+              </ProactiveCaching>
+            </MeasureGroup>
+          </MeasureGroups>
+          <Source>
+            <DataSourceViewID>Nha Mang DW</DataSourceViewID>
+          </Source>
+          <MdxScripts>
+            <MdxScript>
+              <ID>Tinh Toan</ID>
+              <Name>Tinh Toan</Name>
+              <Commands>
+                <Command>
+                  <Text>CALCULATE; CREATE MEMBER CURRENTCUBE.[Measures].[Don Gia Ban Binh Quan] AS IIF([Measures].[So Luong Ban]=0,NULL,[Measures].[Doanh Thu Ban Hang]/[Measures].[So Luong Ban]), FORMAT_STRING='#,##0.00', VISIBLE=1; CREATE MEMBER CURRENTCUBE.[Measures].[Don Gia Mua Binh Quan] AS IIF([Measures].[So Luong Mua]=0,NULL,[Measures].[Thanh Tien Mua]/[Measures].[So Luong Mua]),FORMAT_STRING='#,##0.00',ASSOCIATED_MEASURE_GROUP='Fact Mua Hang'; CREATE MEMBER CURRENTCUBE.[Measures].[So Phut Trung Binh Moi Cuoc] AS IIF([Measures].[So Cuoc Goi]=0,NULL,[Measures].[So Phut Goi]/[Measures].[So Cuoc Goi]),FORMAT_STRING='0.00',ASSOCIATED_MEASURE_GROUP='Fact Cuoc Goi'; CREATE MEMBER CURRENTCUBE.[Measures].[Don Gia Thoai Binh Quan] AS IIF([Measures].[So Phut Goi]=0,NULL,[Measures].[Doanh Thu Thoai]/[Measures].[So Phut Goi]),FORMAT_STRING='#,##0.00',ASSOCIATED_MEASURE_GROUP='Fact Cuoc Goi'; CREATE MEMBER CURRENTCUBE.[Measures].[Don Gia Data Binh Quan] AS IIF([Measures].[Dung Luong Data MB]=0,NULL,[Measures].[Doanh Thu Data]/[Measures].[Dung Luong Data MB]),FORMAT_STRING='#,##0.00',ASSOCIATED_MEASURE_GROUP='Fact Cuoc Goi';</Text>
+                </Command>
+              </Commands>
+            </MdxScript>
+          </MdxScripts>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Cube>
+      </Cubes>
+      <DataSources>
+        <DataSource xsi:type="RelationalDataSource">
+          <ID>Nha Mang DW</ID>
+          <Name>Nha Mang DW</Name>
+          <ConnectionString>Provider=MSOLEDBSQL.1;Data Source=localhost;Initial Catalog=NhaMangDW;Integrated Security=SSPI;TrustServerCertificate=True;</ConnectionString>
+          <ImpersonationInfo>
+            <ImpersonationMode>ImpersonateServiceAccount</ImpersonationMode>
+          </ImpersonationInfo>
+          <Timeout>PT0S</Timeout>
+        </DataSource>
+      </DataSources>
+      <DataSourceViews>
+        <DataSourceView>
+          <ID>Nha Mang DW</ID>
+          <Name>Nha Mang DW</Name>
+          <DataSourceID>Nha Mang DW</DataSourceID>
+          <Schema>
+            <xs:schema id="NhaMangDW" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+              <xs:element name="NhaMangDW" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+                <xs:complexType>
+                  <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="dbo_Dim_ThoiGian" msprop:DbTableName="Dim_ThoiGian" msprop:FriendlyName="Dim Thoi Gian" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ThoiGianID" msprop:FriendlyName="ThoiGianID" type="xs:int" />
+                          <xs:element name="Ngay" msprop:FriendlyName="Ngay" type="xs:dateTime" minOccurs="0" />
+                          <xs:element name="Nam" msprop:FriendlyName="Nam" type="xs:int" minOccurs="0" />
+                          <xs:element name="MaQuy" msprop:FriendlyName="MaQuy" type="xs:int" minOccurs="0" />
+                          <xs:element name="TenQuy" msprop:FriendlyName="TenQuy" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="MaThang" msprop:FriendlyName="MaThang" type="xs:int" minOccurs="0" />
+                          <xs:element name="TenThang" msprop:FriendlyName="TenThang" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Dim_SanPham" msprop:DbTableName="Dim_SanPham" msprop:FriendlyName="Dim San Pham" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SanPhamID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="SanPhamID" type="xs:int" />
+                          <xs:element name="MaSanPhamNghiepVu" msprop:FriendlyName="MaSanPhamNghiepVu">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TenSanPham" msprop:FriendlyName="TenSanPham">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="NhomSanPham" msprop:FriendlyName="NhomSanPham">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="40" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="NgayHieuLuc" msprop:FriendlyName="NgayHieuLuc" type="xs:dateTime" />
+                          <xs:element name="NgayHetHieuLuc" msprop:FriendlyName="NgayHetHieuLuc" type="xs:dateTime" />
+                          <xs:element name="HienHanh" msprop:FriendlyName="HienHanh" type="xs:boolean" />
+                          <xs:element name="DotNapID" msprop:FriendlyName="DotNapID" type="xs:long" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Dim_KhoHang" msprop:DbTableName="Dim_KhoHang" msprop:FriendlyName="Dim Kho Hang" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="KhoHangID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="KhoHangID" type="xs:int" />
+                          <xs:element name="MaKhoHangNghiepVu" msprop:FriendlyName="MaKhoHangNghiepVu">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TenKhoHang" msprop:FriendlyName="TenKhoHang" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TenTinh" msprop:FriendlyName="TenTinh" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Vung" msprop:FriendlyName="Vung" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Fact_BanHang" msprop:DbTableName="Fact_BanHang" msprop:FriendlyName="Fact Ban Hang" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="BanHangID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="BanHangID" type="xs:long" />
+                          <xs:element name="HeThongNguon" msprop:FriendlyName="HeThongNguon">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DongNguonID" msprop:FriendlyName="DongNguonID" type="xs:long" />
+                          <xs:element name="SoChungTu" msprop:FriendlyName="SoChungTu">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="SoThuTuDong" msprop:FriendlyName="SoThuTuDong" type="xs:int" />
+                          <xs:element name="ThoiGianID" msprop:FriendlyName="ThoiGianID" type="xs:int" />
+                          <xs:element name="SanPhamID" msprop:FriendlyName="SanPhamID" type="xs:int" />
+                          <xs:element name="KhoHangID" msprop:FriendlyName="KhoHangID" type="xs:int" />
+                          <xs:element name="SoLuongBan" msprop:FriendlyName="SoLuongBan" type="xs:int" />
+                          <xs:element name="DonGiaBan" msprop:FriendlyName="DonGiaBan" type="xs:decimal" />
+                          <xs:element name="DotNapID" msprop:FriendlyName="DotNapID" type="xs:long" />
+                          <xs:element name="DoanhThu" msdata:ReadOnly="true" msprop:FriendlyName="DoanhThu" type="xs:decimal" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Fact_MuaHang" msprop:DbTableName="Fact_MuaHang" msprop:FriendlyName="Fact Mua Hang" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="MuaHangID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="MuaHangID" type="xs:long" />
+                          <xs:element name="HeThongNguon" msprop:FriendlyName="HeThongNguon">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DongNguonID" msprop:FriendlyName="DongNguonID" type="xs:long" />
+                          <xs:element name="SoChungTu" msprop:FriendlyName="SoChungTu">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="SoThuTuDong" msprop:FriendlyName="SoThuTuDong" type="xs:int" />
+                          <xs:element name="ThoiGianID" msprop:FriendlyName="ThoiGianID" type="xs:int" />
+                          <xs:element name="SanPhamID" msprop:FriendlyName="SanPhamID" type="xs:int" />
+                          <xs:element name="KhoHangID" msprop:FriendlyName="KhoHangID" type="xs:int" />
+                          <xs:element name="SoLuongMua" msprop:FriendlyName="SoLuongMua" type="xs:int" />
+                          <xs:element name="DonGiaMua" msprop:FriendlyName="DonGiaMua" type="xs:decimal" />
+                          <xs:element name="DotNapID" msprop:FriendlyName="DotNapID" type="xs:long" />
+                          <xs:element name="ThanhTienMua" msdata:ReadOnly="true" msprop:FriendlyName="ThanhTienMua" type="xs:decimal" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Fact_TonKho" msprop:DbTableName="Fact_TonKho" msprop:FriendlyName="Fact Ton Kho" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="TonKhoID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="TonKhoID" type="xs:long" />
+                          <xs:element name="HeThongNguon" msprop:FriendlyName="HeThongNguon">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DongNguonID" msprop:FriendlyName="DongNguonID" type="xs:long" />
+                          <xs:element name="SoChungTu" msprop:FriendlyName="SoChungTu">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="SoThuTuDong" msprop:FriendlyName="SoThuTuDong" type="xs:int" />
+                          <xs:element name="ThoiGianID" msprop:FriendlyName="ThoiGianID" type="xs:int" />
+                          <xs:element name="SanPhamID" msprop:FriendlyName="SanPhamID" type="xs:int" />
+                          <xs:element name="KhoHangID" msprop:FriendlyName="KhoHangID" type="xs:int" />
+                          <xs:element name="SoLuongTon" msprop:FriendlyName="SoLuongTon" type="xs:int" />
+                          <xs:element name="DonGiaTonKyThuat" msprop:FriendlyName="DonGiaTonKyThuat" type="xs:decimal" />
+                          <xs:element name="DotNapID" msprop:FriendlyName="DotNapID" type="xs:long" />
+                          <xs:element name="ThanhTienTonKyThuat" msdata:ReadOnly="true" msprop:FriendlyName="ThanhTienTonKyThuat" type="xs:decimal" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Dim_DichVu" msprop:DbTableName="Dim_DichVu" msprop:FriendlyName="Dim Dich Vu" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="DichVuID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="DichVuID" type="xs:int" />
+                          <xs:element name="MaDichVu" msprop:FriendlyName="MaDichVu">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TenGoiCuoc" msprop:FriendlyName="TenGoiCuoc">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="LoaiDichVu" msprop:FriendlyName="LoaiDichVu">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DonViTinh" msprop:FriendlyName="DonViTinh">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DonGiaPhut" msprop:FriendlyName="DonGiaPhut" type="xs:decimal" />
+                          <xs:element name="DonGiaMB" msprop:FriendlyName="DonGiaMB" type="xs:decimal" />
+                          <xs:element name="PhiMoiPhut" msprop:FriendlyName="PhiMoiPhut" type="xs:decimal" />
+                          <xs:element name="PhiMoiMB" msprop:FriendlyName="PhiMoiMB" type="xs:decimal" />
+                          <xs:element name="PhiMoiBanGhi" msprop:FriendlyName="PhiMoiBanGhi" type="xs:decimal" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Dim_NhaMang" msprop:DbTableName="Dim_NhaMang" msprop:FriendlyName="Dim Nha Mang" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="NhaMangID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="NhaMangID" type="xs:int" />
+                          <xs:element name="MaNhaMang" msprop:FriendlyName="MaNhaMang">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TenNhaMang" msprop:FriendlyName="TenNhaMang">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="LoaiHinh" msprop:FriendlyName="LoaiHinh">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="50" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Dim_ThueBao" msprop:DbTableName="Dim_ThueBao" msprop:FriendlyName="Dim Thue Bao" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ThueBaoID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="ThueBaoID" type="xs:int" />
+                          <xs:element name="MaThueBao" msprop:FriendlyName="MaThueBao">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="LoaiKhachHang" msprop:FriendlyName="LoaiKhachHang">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="50" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="NgayDangKy" msprop:FriendlyName="NgayDangKy" type="xs:dateTime" />
+                          <xs:element name="TenNgayDangKy" msdata:ReadOnly="true" msprop:FriendlyName="TenNgayDangKy" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Dim_KhuVuc" msprop:DbTableName="Dim_KhuVuc" msprop:FriendlyName="Dim Khu Vuc" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="KhuVucID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="KhuVucID" type="xs:int" />
+                          <xs:element name="MaKhuVuc" msprop:FriendlyName="MaKhuVuc">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TenTinh" msprop:FriendlyName="TenTinh">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Vung" msprop:FriendlyName="Vung">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dbo_Fact_CuocGoi" msprop:DbTableName="Fact_CuocGoi" msprop:FriendlyName="Fact Cuoc Goi" msprop:DbSchemaName="dbo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="CuocGoiID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="CuocGoiID" type="xs:long" />
+                          <xs:element name="HeThongNguon" msprop:FriendlyName="HeThongNguon">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DongNguonID" msprop:FriendlyName="DongNguonID" type="xs:long" />
+                          <xs:element name="MaSuDung" msprop:FriendlyName="MaSuDung">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="60" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="ThoiGianID" msprop:FriendlyName="ThoiGianID" type="xs:int" />
+                          <xs:element name="DichVuID" msprop:FriendlyName="DichVuID" type="xs:int" />
+                          <xs:element name="NhaMangID" msprop:FriendlyName="NhaMangID" type="xs:int" />
+                          <xs:element name="ThueBaoID" msprop:FriendlyName="ThueBaoID" type="xs:int" />
+                          <xs:element name="KhuVucID" msprop:FriendlyName="KhuVucID" type="xs:int" />
+                          <xs:element name="SoPhutGoi" msprop:FriendlyName="SoPhutGoi" type="xs:decimal" />
+                          <xs:element name="DungLuongDataMB" msprop:FriendlyName="DungLuongDataMB" type="xs:decimal" />
+                          <xs:element name="SoCuocGoi" msprop:FriendlyName="SoCuocGoi" type="xs:int" />
+                          <xs:element name="DonGiaPhut" msprop:FriendlyName="DonGiaPhut" type="xs:decimal" />
+                          <xs:element name="DonGiaMB" msprop:FriendlyName="DonGiaMB" type="xs:decimal" />
+                          <xs:element name="DoanhThuThoai" msdata:ReadOnly="true" msprop:FriendlyName="DoanhThuThoai" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="DoanhThuData" msdata:ReadOnly="true" msprop:FriendlyName="DoanhThuData" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="DoanhThu" msdata:ReadOnly="true" msprop:FriendlyName="DoanhThu" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="PhiVienThong" msprop:FriendlyName="PhiVienThong" type="xs:decimal" />
+                          <xs:element name="PhiXuLy" msprop:FriendlyName="PhiXuLy" type="xs:decimal" />
+                          <xs:element name="DotNapID" msprop:FriendlyName="DotNapID" type="xs:long" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+                <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Dim_ThoiGian" />
+                  <xs:field xpath="ThoiGianID" />
+                </xs:unique>
+                <xs:unique name="dbo_Dim_SanPham_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Dim_SanPham" />
+                  <xs:field xpath="SanPhamID" />
+                </xs:unique>
+                <xs:unique name="dbo_Dim_KhoHang_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Dim_KhoHang" />
+                  <xs:field xpath="KhoHangID" />
+                </xs:unique>
+                <xs:unique name="dbo_Fact_BanHang_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Fact_BanHang" />
+                  <xs:field xpath="BanHangID" />
+                </xs:unique>
+                <xs:unique name="dbo_Fact_MuaHang_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Fact_MuaHang" />
+                  <xs:field xpath="MuaHangID" />
+                </xs:unique>
+                <xs:unique name="dbo_Fact_TonKho_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Fact_TonKho" />
+                  <xs:field xpath="TonKhoID" />
+                </xs:unique>
+                <xs:unique name="dbo_Dim_DichVu_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Dim_DichVu" />
+                  <xs:field xpath="DichVuID" />
+                </xs:unique>
+                <xs:unique name="dbo_Dim_NhaMang_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Dim_NhaMang" />
+                  <xs:field xpath="NhaMangID" />
+                </xs:unique>
+                <xs:unique name="dbo_Dim_ThueBao_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Dim_ThueBao" />
+                  <xs:field xpath="ThueBaoID" />
+                </xs:unique>
+                <xs:unique name="dbo_Dim_KhuVuc_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Dim_KhuVuc" />
+                  <xs:field xpath="KhuVucID" />
+                </xs:unique>
+                <xs:unique name="dbo_Fact_CuocGoi_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//dbo_Fact_CuocGoi" />
+                  <xs:field xpath="CuocGoiID" />
+                </xs:unique>
+              </xs:element>
+              <xs:annotation>
+                <xs:appinfo>
+                  <msdata:Relationship name="FK_Fact_BanHang_Dim_ThoiGian" msdata:parent="dbo_Dim_ThoiGian" msdata:child="dbo_Fact_BanHang" msdata:parentkey="ThoiGianID" msdata:childkey="ThoiGianID" />
+                  <msdata:Relationship name="FK_Fact_BanHang_Dim_SanPham" msdata:parent="dbo_Dim_SanPham" msdata:child="dbo_Fact_BanHang" msdata:parentkey="SanPhamID" msdata:childkey="SanPhamID" />
+                  <msdata:Relationship name="FK_Fact_BanHang_Dim_KhoHang" msdata:parent="dbo_Dim_KhoHang" msdata:child="dbo_Fact_BanHang" msdata:parentkey="KhoHangID" msdata:childkey="KhoHangID" />
+                  <msdata:Relationship name="FK_Fact_MuaHang_Dim_ThoiGian" msdata:parent="dbo_Dim_ThoiGian" msdata:child="dbo_Fact_MuaHang" msdata:parentkey="ThoiGianID" msdata:childkey="ThoiGianID" />
+                  <msdata:Relationship name="FK_Fact_MuaHang_Dim_SanPham" msdata:parent="dbo_Dim_SanPham" msdata:child="dbo_Fact_MuaHang" msdata:parentkey="SanPhamID" msdata:childkey="SanPhamID" />
+                  <msdata:Relationship name="FK_Fact_MuaHang_Dim_KhoHang" msdata:parent="dbo_Dim_KhoHang" msdata:child="dbo_Fact_MuaHang" msdata:parentkey="KhoHangID" msdata:childkey="KhoHangID" />
+                  <msdata:Relationship name="FK_Fact_TonKho_Dim_ThoiGian" msdata:parent="dbo_Dim_ThoiGian" msdata:child="dbo_Fact_TonKho" msdata:parentkey="ThoiGianID" msdata:childkey="ThoiGianID" />
+                  <msdata:Relationship name="FK_Fact_TonKho_Dim_SanPham" msdata:parent="dbo_Dim_SanPham" msdata:child="dbo_Fact_TonKho" msdata:parentkey="SanPhamID" msdata:childkey="SanPhamID" />
+                  <msdata:Relationship name="FK_Fact_TonKho_Dim_KhoHang" msdata:parent="dbo_Dim_KhoHang" msdata:child="dbo_Fact_TonKho" msdata:parentkey="KhoHangID" msdata:childkey="KhoHangID" />
+                  <msdata:Relationship name="FK_Fact_CuocGoi_Dim_ThoiGian" msdata:parent="dbo_Dim_ThoiGian" msdata:child="dbo_Fact_CuocGoi" msdata:parentkey="ThoiGianID" msdata:childkey="ThoiGianID" />
+                  <msdata:Relationship name="FK_Fact_CuocGoi_Dim_DichVu" msdata:parent="dbo_Dim_DichVu" msdata:child="dbo_Fact_CuocGoi" msdata:parentkey="DichVuID" msdata:childkey="DichVuID" />
+                  <msdata:Relationship name="FK_Fact_CuocGoi_Dim_NhaMang" msdata:parent="dbo_Dim_NhaMang" msdata:child="dbo_Fact_CuocGoi" msdata:parentkey="NhaMangID" msdata:childkey="NhaMangID" />
+                  <msdata:Relationship name="FK_Fact_CuocGoi_Dim_ThueBao" msdata:parent="dbo_Dim_ThueBao" msdata:child="dbo_Fact_CuocGoi" msdata:parentkey="ThueBaoID" msdata:childkey="ThueBaoID" />
+                  <msdata:Relationship name="FK_Fact_CuocGoi_Dim_KhuVuc" msdata:parent="dbo_Dim_KhuVuc" msdata:child="dbo_Fact_CuocGoi" msdata:parentkey="KhuVucID" msdata:childkey="KhuVucID" />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:schema>
+            <NhaMangDW xmlns="" />
+          </Schema>
+        </DataSourceView>
+      </DataSourceViews>
+    </Database>
+  </ObjectDefinition>
+</Create>
